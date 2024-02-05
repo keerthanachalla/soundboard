@@ -1,0 +1,74 @@
+:root{
+    --penguin-face: white;
+}
+body{
+    /*banana yellow :P*/
+    background: #ffe135;
+    margin-right: 200px;
+    margin-left: 200px;
+    height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+input {
+    margin-top: 30%;
+    margin-left: 65%;
+    height: 35px;
+    width: 180px;
+    padding-left: 100px;
+}
+
+button{
+    background: #e7feff;
+    height: 40px;
+    width: 150px;
+}
+
+#keyboard{
+    width: 1000px;
+}
+
+#keyboard ul{
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#keyboard ul li {
+    height: 70px;
+    width: 70px;
+    /*border: 1px solid black;*/
+    border-radius: 10px 20px 15px 15px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-family: monospace;
+    font-size: 22px;
+    overflow: hidden;
+
+border-radius: 1px;
+background: #ffe135;
+box-shadow:  8px 8px 16px #f0d432,
+             -8px -8px 16px #ffef38;
+}
+
+#keyboard ul li.icon{
+    border: none;
+}
+
+#keyboard ul li.icon:hover{
+    cursor: pointer;
+}
+ 
+.yoko{
+    border: 1px solid brown;
+
+}
