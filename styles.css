@@ -1,17 +1,12 @@
 :root{
-    --penguin-face: white;
+    /*banana yellow :P*/
+    --banana-yellow: #ffe135;
 }
 body{
-    /*banana yellow :P*/
-    background: #ffe135;
+    background: var(--banana-yellow);
     margin-right: 200px;
     margin-left: 200px;
     height: 90vh;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-around;
 }
 
 input {
@@ -30,6 +25,7 @@ button{
 
 #keyboard{
     width: 1000px;
+    margin-top: 100px;
 }
 
 #keyboard ul{
@@ -43,7 +39,6 @@ button{
 #keyboard ul li {
     height: 70px;
     width: 70px;
-    /*border: 1px solid black;*/
     border-radius: 10px 20px 15px 15px;
     margin-left: 20px;
     display: flex;
@@ -53,22 +48,49 @@ button{
     font-family: monospace;
     font-size: 22px;
     overflow: hidden;
+    border-radius: 1px;
+    background: #ffe135;
+    box-shadow:  8px 8px 16px #f0d432,
+                -8px -8px 16px #ffef38;
 
-border-radius: 1px;
-background: #ffe135;
-box-shadow:  8px 8px 16px #f0d432,
-             -8px -8px 16px #ffef38;
+    -webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	transition: all 0.6s ease;
+    position: relative;
+    cursor: pointer;
 }
 
+#keyboard ul li:hover{
+    background: #efd439;
+}
+
+.keypress{
+    animation: keyPressAni 1s ease;
+}
+
+@keyframes keyPressAni {
+    50% {
+        background-color: #edd131;
+        transform: perspective(1200px) translateZ(-90px);
+    }
+}
+
+#spaceBar li{
+    padding-left: 130px;
+    padding-right: 130px;
+    margin-top: 10px;
+}
+ 
 #keyboard ul li.icon{
     border: none;
 }
 
-#keyboard ul li.icon:hover{
-    cursor: pointer;
-}
- 
-.yoko{
-    border: 1px solid brown;
-
+.title{
+    font-size: 42px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0;
+    font-family: 'Protest Revolution', sans-serif;
 }

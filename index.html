@@ -4,75 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suds Soundboard</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <button onclick="mutePage()">mute all</button>
+	<div class="title">Suds Soundboard</div>
+
     <div id="keyboard">
     	<ul id="firstRow">
-    		<li>Q</li>
-    		<li>W</li>
-    		<li class="icon">
+    		<li data-key="q">Q</li>
+    		<li data-key="w">W</li>
+    		<li  data-key="e" class="icon">
     			<!-- E -->
     			<img src="cat/noun-cat-101879.svg" alt="cat sound" id="catSound">
     		</li>
-    		<li>R</li>
-    		<li class="icon">
+    		<li data-key="r">R</li>
+    		<li  data-key="t" class="icon">
     		<!-- T -->
     			<img src="moan-scream-sob/noun-sob-kitty-374107.svg" alt="sob-party" id="sobParty">
     		</li>
-    		<li>Y</li>
-    		<li>U</li>
-    		<li class="icon">
+    		<li data-key="y">Y</li>
+    		<li data-key="u">U</li>
+    		<li data-key="i" class="icon">
     			<!-- I -->
     			<img src="audience/noun-party-138963.svg" alt="noun-party" id="nounParty">
     		</li>
-    		<li>O</li>
-    		<li>P</li>
+    		<li data-key="o">O</li>
+    		<li data-key="p">P</li>
     	</ul>
     	<ul id="secondRow">
-    		<li>A</li>
-    		<li>S</li>
-    		<li class="icon">
+    		<li data-key="a">A</li>
+    		<li data-key="s">S</li>
+    		<li data-key="d" class="icon">
     		<!-- D -->
     			<img src="female/noun-hilarious-2464928.svg" alt="woman-hilarious" id="womanHilarious">
     		</li>
-    		<li>F</li>
-    		<li>G</li>
-    		<li class="icon">
+    		<li data-key="f">F</li>
+    		<li data-key="g">G</li>
+    		<li data-key="h" class="icon">
     			<!-- H -->
     			<img src="moan-scream-sob/noun-cat-1678644.svg" alt="sob-in-fear" id="sobInFear">
     		</li>
-    		<li>J</li>
-    		<li>K</li>
-    		<li>L</li>
+    		<li data-key="j">J</li>
+    		<li data-key="k">K</li>
+    		<li data-key="l">L</li>
     	</ul>
     	<ul id="thirdRow">
-    		<li>Z</li>
-    		<li>X</li>
-    		<li>C</li>
-    		<li class="icon">
+    		<li data-key="z">Z</li>
+    		<li data-key="x">X</li>
+    		<li data-key="c">C</li>
+    		<li data-key="v" class="icon">
     			<!-- V -->
     			<img src="yoko-ono/noun-yoko-3003890.svg" alt="yoko-living" id="yokoLiving">	
     		</li>
-    		<li>B</li>
-    		<li>N</li>
-    		<li>M</li>
+    		<li data-key="b">B</li>
+    		<li data-key="n">N</li>
+    		<li data-key="m">M</li>
     	</ul>
+		<ul id="spaceBar">
+			<li data-key=" ">
+				<img src="icons8-mute-50.png" onclick="mutePage()" alt="gg" height="40">
+			</li>
+		</ul>
     </div>
 </body>
 <script src="src.js" type="text/javascript"></script>
 
 </html>
-
-
-<!--   <ul>
-       
-        <audio id="yourAudio" preload='none'>
-            <source src='mixkit-small-group-cheer-and-applause-518.wav' type='audio/wav' />
-        </audio>
-        <a href="#" id="audioControl">Play!</a>
-
-
-
-    </ul> -->

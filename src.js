@@ -2,13 +2,16 @@ pauseOrPlay = (audio) => {
 	if(audio.paused){
  	 audio.play()
 	}else{
- 	 audio.pause()
+	 muteMe(audio)
 	}
 }
 
-	const smallGroupCheerAudio = new Audio('audience/mixkit-small-group-cheer-and-applause-518.wav')
-	const catSoundAudio = new Audio('cat/mixkit-big-wild-cat-long-purr-96.wav')
-
+const smallGroupCheerAudio = new Audio('audience/mixkit-small-group-cheer-and-applause-518.wav')
+const catSoundAudio = new Audio('cat/mixkit-domestic-cat-hungry-meow-45.wav')
+const womanHilariousAudio = new Audio('female/mixkit-female-long-laugh-426.wav')
+const peopleMoaningSadlyAudio = new Audio('moan-scream-sob/mixkit-people-moaning-sadly-469.wav')
+const sobInFearAudio = new Audio('moan-scream-sob/mixkit-creature-sobbing-in-fear-464.wav')
+const yokoOnoAudio = new Audio('yoko-ono/Yoko Ono Screaming at Art Show!.mp3')
 
 createAudioElements = () => {
 	let smallGroupCheer = document.getElementById('nounParty')
@@ -29,7 +32,6 @@ createAudioElements = () => {
 
 	let womanHilarious = document.getElementById('womanHilarious')
 	womanHilarious.style.height = '89px'
-	let womanHilariousAudio = new Audio('female/mixkit-woman-hilarious-laughing-410.wav')
 	womanHilarious.appendChild(womanHilariousAudio)
 
 	womanHilarious.onclick = () => {
@@ -38,7 +40,6 @@ createAudioElements = () => {
 
 	let peopleMoaningSadly = document.getElementById('sobParty')
 	peopleMoaningSadly.style.height = '89px'
-	let peopleMoaningSadlyAudio = new Audio('moan-scream-sob/mixkit-people-moaning-sadly-469.wav')
 	peopleMoaningSadly.appendChild(peopleMoaningSadlyAudio)
 
 	peopleMoaningSadly.onclick = () => {
@@ -47,7 +48,6 @@ createAudioElements = () => {
 
 	let sobInFear = document.getElementById('sobInFear')
 	sobInFear.style.height = '89px'
-	let sobInFearAudio = new Audio('moan-scream-sob/mixkit-creature-sobbing-in-fear-464.wav')
 	sobInFear.appendChild(sobInFearAudio)
 
 	sobInFear.onclick = () => {
@@ -57,7 +57,6 @@ createAudioElements = () => {
 	let yokoOno = document.getElementById('yokoLiving')
 	yokoOno.style.height = '89px'
 	// yokoOno.innerHTML = 'oooooAAAHHHHHHH'
-	let yokoOnoAudio = new Audio('yoko-ono/Yoko Ono Screaming at Art Show!.mp3')
 	yokoOno.appendChild(yokoOnoAudio)
 
 	yokoOno.onclick = () => {
@@ -68,51 +67,70 @@ createAudioElements = () => {
 
 createAudioElements();
 
-
 // Mute a singular HTML5 element
 muteMe = (elem) => {
-    // elem.muted = true;
     elem.pause();
+	elem.currentTime = 0;
 }
 
 // Try to mute all video and audio elements on the page
 mutePage = () => {
     document.querySelectorAll("audio").forEach((elem) => {
-    	muteMe(elem) });
+    	muteMe(elem) 
+	});
 }
 
-
+getKey = (e) => {
+	const parsedKey = e.key
+	const ele = document.querySelector(`[data-key="${parsedKey}"]`)
+	return ele;
+}
 document.addEventListener("keydown", (e) => {
-  if (e.key == "i" || e.key == "I") { 
-		pauseOrPlay(smallGroupCheerAudio)
+	const key = getKey(e);
+	if (key) {
+		key.classList.add("keypress");
+	}
 
-  }
-
+  switch (e.key) {
+	case "e":
 		pauseOrPlay(catSoundAudio)
+	    break;
+	case "t":
+		pauseOrPlay(peopleMoaningSadlyAudio)
+		break;
+	case "i":
+	    pauseOrPlay(smallGroupCheerAudio)
+	    break;
+	case "d":
+		pauseOrPlay(womanHilariousAudio)
+		break
+	case "h":
+		pauseOrPlay(sobInFearAudio)
+		break;
+	case "v":
+		pauseOrPlay(yokoOnoAudio)
+	    break;
+	case " ":
+		mutePage();
+  }
   
 });
 
-
-
-// function playMusic(){
-// 	console.log("1 log")
-//   var music = new Audio('audience/mixkit-small-group-cheer-and-applause-518.wav');
-//   music.play();
-//   }
-
-// var yourAudio = document.getElementById('yourAudio'),
-//     ctrl = document.getElementById('audioControl');
-
-// ctrl.onclick = function () {
-// 	console.log('onclick on play')
-//     // Update the Button
-//     var pause = ctrl.innerHTML === 'pause!';
-//     ctrl.innerHTML = pause ? 'play!' : 'pause!';
-
-//     // Update the Audio
-//     var method = pause ? 'pause' : 'play';
-//     yourAudio[method]();
-
-//     // Prevent Default Action
-//     return false;
-// };
+document.addEventListener("keyup", (event) => {
+	const key = getKey(event);
+	if (key) {
+	  key.classList.remove("keypress");
+	}
+  });
+  
+  document.addEventListener("mousedown", (event) => {
+	if (event.target.dataset.key) {
+	  event.target.classList.add("keypress");
+	}
+  });
+  
+  document.addEventListener("mouseup", (event) => {
+	if (event.target.dataset.key) {
+	  event.target.classList.remove("keypress");
+	}
+  });
